@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Send repository_dispatch event to Knowledge Base 
-        uses: peter-evans/repository_dispatch@v3
+        uses: peter-evans/repository-dispatch@v3.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: prcsmae/mkdocs-practice
