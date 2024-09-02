@@ -12,6 +12,6 @@ jobs:
       - name: Send repository_dispatch event to Knowledge Base 
         uses: peter-evans/repository-dispatch@v3.0.0
         with:
-          token: ${{ secrets.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 }}
+          token: ${{ secrets.mkdocs-PAT }}
           repository: prcsmae/mkdocs-practice
           event-type: docs-updated
