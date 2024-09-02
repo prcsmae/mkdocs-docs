@@ -1,0 +1,18 @@
+name: Trigger Knowledge Base Workflow
+
+on:
+  push:
+    branches:
+    - main
+jobs:
+  trigger-repo2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send repository_dispatch event to Knowledge Base 
+        run: |
+          curl -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -d '{"event_type": "docs-updated"}' \
+          https://api.github.com/repos/prcsmae/mkdocs-practice/dispatches
