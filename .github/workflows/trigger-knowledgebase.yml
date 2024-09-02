@@ -10,9 +10,8 @@ jobs:
 
     steps:
       - name: Send repository_dispatch event to Knowledge Base 
-        run: |
-          curl -X POST \
-          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          -d '{"event_type": "docs-updated"}' \
-          https://api.github.com/repos/prcsmae/mkdocs-practice/dispatches
+        uses: peter-evans/repository_dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: prcsmae/mkdocs-practice
+          event-type: docs-updated
